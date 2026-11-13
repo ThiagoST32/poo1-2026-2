@@ -46,11 +46,5 @@ public abstract class BasePrestador extends BasePessoa {
         this.endereco = endereco;
     }
 
-    public BasePrestador(String email, String telefone, String endereco) {
-        this.email = email;
-        this.telefone = telefone;
-        this.endereco = endereco;
-    }
-
     public BasePrestador() {}
 }

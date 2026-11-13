@@ -60,26 +60,7 @@ public class EstagiarioMenu extends BaseMenu implements IMenu {
         System.out.println("\n\n");
         System.out.println("***** PESQUISAR POR CÓDIGO *****");
         System.out.print("Informe o código: ");
-        int codigo;
-        while (true) {
-            if (!this.scan.hasNextInt()) {
-                System.out.println("Entrada inválida. Por favor, insira um número inteiro para o código.");
-                this.scan.nextLine();
-                System.out.print("Informe o código: ");
-                continue;
-            }
-
-            codigo = this.scan.nextInt();
-            this.scan.nextLine();
-            if (codigo > 0) {
-                break;
-            }
-
-            System.out.println("Entrada inválida. O código deve ser maior que zero.");
-            System.out.print("Informe o código: ");
-        }
-
-        this.estagiario = this.servico.buscar(codigo);
+        this.estagiario = this.servico.buscar(this.entradaValida());
         if (this.estagiario != null) {
             this.estagiario.exibir();
             return;
@@ -106,9 +87,8 @@ public class EstagiarioMenu extends BaseMenu implements IMenu {
         String telefone = this.scan.nextLine();
 
         System.out.print("Informe o valor bolsa: ");
-        double valorBolsa = this.scan.nextDouble();
+        double valorBolsa = Double.parseDouble(String.valueOf(this.entradaValida()));
 
-        this.scan.nextLine();
         System.out.print("Informe o endereço: ");
         String endereco = this.scan.nextLine();
 
@@ -116,7 +96,7 @@ public class EstagiarioMenu extends BaseMenu implements IMenu {
         String areaEstagio = this.scan.nextLine();
 
         System.out.print("Informe o carga horaria semanal: ");
-        int cargaHorariaSemanal = this.scan.nextInt();
+        int cargaHorariaSemanal = this.entradaValida();
 
         this.estagiario = this.servico.criar(new Estagiario(0, nome, cpf, email, telefone, valorBolsa, endereco, areaEstagio, cargaHorariaSemanal));
 
@@ -153,7 +133,7 @@ public class EstagiarioMenu extends BaseMenu implements IMenu {
         String telefone = this.scan.nextLine();
 
         System.out.print("Informe o valor bolsa: ");
-        double valorBolsa = this.scan.nextDouble();
+        double valorBolsa = Double.parseDouble(String.valueOf(this.entradaValida()));
 
         this.scan.nextLine();
         System.out.print("Informe o endereço: ");
@@ -163,7 +143,7 @@ public class EstagiarioMenu extends BaseMenu implements IMenu {
         String areaEstagio = this.scan.nextLine();
 
         System.out.print("Informe o carga horaria semanal: ");
-        int cargaHorariaSemanal = this.scan.nextInt();
+        int cargaHorariaSemanal = this.entradaValida();
         this.scan.nextLine();
 
         System.out.println("Confirma a alteração do estagiário? (Sim/Não): ");
@@ -190,7 +170,7 @@ public class EstagiarioMenu extends BaseMenu implements IMenu {
         System.out.println("***** EXCLUIR *****");
         this.pesquisarPorCodigo();
         if (this.estagiario != null) {
-            System.out.println("Confirma a alteração do estagiário? (Sim/Não): ");
+            System.out.println("Confirma a exclusão do estagiário? (Sim/Não): ");
             String confirmacao = this.scan.nextLine().trim().toLowerCase();
 
             if (confirmacao.equals("sim")) {

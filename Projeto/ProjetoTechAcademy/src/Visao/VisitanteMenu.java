@@ -59,25 +59,7 @@ public class VisitanteMenu extends BaseMenu implements IMenu {
         System.out.println("\n\n");
         System.out.println("***** PESQUISAR POR CÓDIGO *****");
         System.out.print("Informe o código: ");
-        int codigo;
-        while (true) {
-            if (!this.scan.hasNextInt()) {
-                System.out.println("Entrada inválida. Por favor, insira um número inteiro para o código.");
-                System.out.print("Informe o código: ");
-                continue;
-            }
-
-            codigo = this.scan.nextInt();
-            this.scan.nextLine();
-            if (codigo > 0) {
-                break;
-            }
-
-            System.out.println("Entrada inválida. O código deve ser maior que zero.");
-            System.out.print("Informe o código: ");
-        }
-
-        this.visitante = this.servico.buscar(codigo);
+        this.visitante = this.servico.buscar(this.entradaValida());
         if (this.visitante != null) {
             this.visitante.exibir();
             return;
@@ -179,9 +161,15 @@ public class VisitanteMenu extends BaseMenu implements IMenu {
         System.out.println("***** EXCLUIR *****");
         this.pesquisarPorCodigo();
         if (this.visitante != null) {
-            this.servico.excluirPorID(this.visitante.getCodigo());
-            System.out.println("Visitante excluído com sucesso!");
-            this.pauseAndClear();
+            System.out.println("Confirma a exclusão do visitante? (Sim/Não): ");
+            String confirmacao = this.scan.nextLine().trim().toLowerCase();
+
+            if (confirmacao.equals("sim")) {
+                this.servico.excluirPorID(this.visitante.getCodigo());
+                System.out.println("Estagiário excluído com sucesso!");
+                this.pauseAndClear();
+            }
+            System.out.println("Exclusão cancelada.");
         }
     }
 

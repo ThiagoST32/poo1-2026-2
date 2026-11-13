@@ -16,6 +16,9 @@ public class Visitante extends BasePrestador {
     public void setMotivoVisita(String motivoVisita) {
         if (motivoVisita == null || motivoVisita.isEmpty()) {
             System.out.println("Motivo da visita não pode ser nulo ou vazio.");
+            return;
+            //Não implementado por não ter sido passado em sala de aula, mas poderia ser implementado com uma exceção
+            //throw new IllegalArgumentException("Motivo da visita não pode ser nulo ou vazio.");
         }
         this.motivoVisita = motivoVisita;
     }
@@ -27,6 +30,9 @@ public class Visitante extends BasePrestador {
     public void setCrachaNumero(int crachaNumero) {
         if (crachaNumero <= 0) {
             System.out.println("Número do crachá não pode ser menor ou igual a zero.");
+            return;
+            //Não implementado por não ter sido passado em sala de aula, mas poderia ser implementado com uma exceção
+            //throw new IllegalArgumentException("Número do crachá não pode ser menor ou igual a zero.");
         }
         this.crachaNumero = crachaNumero;
     }
@@ -38,6 +44,9 @@ public class Visitante extends BasePrestador {
     public void setSetorVisita(String setorVisita) {
         if (setorVisita == null || setorVisita.isEmpty()) {
             System.out.println("Setor da visita não pode ser nulo ou vazio.");
+            return;
+            //Não implementado por não ter sido passado em sala de aula, mas poderia ser implementado com uma exceção
+            //throw new IllegalArgumentException("Setor da visita não pode ser nulo ou vazio.");
         }
         this.setorVisita = setorVisita;
     }

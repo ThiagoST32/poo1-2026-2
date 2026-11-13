@@ -13,7 +13,10 @@ public class Egresso extends BasePessoa {
 
     public void setAnoConclusao(int anoConclusao) {
         if (anoConclusao < 1900 || anoConclusao > 2100) {
-            throw new IllegalArgumentException("O ano de conclusão deve estar entre 1900 e 2100.");
+            System.out.println("O ano de conclusão deve estar entre 1900 e 2100.");
+            return;
+            //Não implementado por não ter sido passado em sala de aula, mas poderia ser implementado com uma exceção
+            //throw new IllegalArgumentException("O ano de conclusão deve estar entre 1900 e 2100.");
         }
         this.anoConclusao = anoConclusao;
     }
@@ -24,7 +27,10 @@ public class Egresso extends BasePessoa {
 
     public void setCursoFormacao(String cursoFormacao) {
         if (cursoFormacao == null || cursoFormacao.isEmpty()) {
-            throw new IllegalArgumentException("O curso de formação não pode ser nulo ou vazio.");
+            System.out.println("O curso de formação não pode ser nulo ou vazio.");
+            return;
+            //Não implementado por não ter sido passado em sala de aula, mas poderia ser implementado com uma exceção
+            //throw new IllegalArgumentException("O curso de formação não pode ser nulo ou vazio.");
         }
         this.cursoFormacao = cursoFormacao;
     }
@@ -35,7 +41,10 @@ public class Egresso extends BasePessoa {
 
     public void setAreaAtuacao(String areaAtuacao) {
         if (areaAtuacao == null || areaAtuacao.isEmpty()) {
-            throw new IllegalArgumentException("A área de atuação não pode ser nula ou vazia.");
+            System.out.println("A área de atuação não pode ser nula ou vazia.");
+            return;
+            //Não implementado por não ter sido passado em sala de aula, mas poderia ser implementado com uma exceção
+            //throw new IllegalArgumentException("A área de atuação não pode ser nula ou vazia.");
         }
         this.areaAtuacao = areaAtuacao;
     }

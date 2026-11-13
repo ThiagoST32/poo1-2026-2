@@ -13,6 +13,9 @@ public class Estagiario extends BasePrestador {
     public void setValorBolsa(Double valorBolsa) {
         if (valorBolsa <= 0) {
             System.out.println("Valor da bolsa deve ser maior que zero.");
+            return;
+            //Não implementado por não ter sido passado em sala de aula, mas poderia ser implementado com uma exceção
+            //throw new IllegalArgumentException("Valor da bolsa deve ser maior que zero.");
         }
         this.valorBolsa = valorBolsa;
     }
@@ -24,6 +27,9 @@ public class Estagiario extends BasePrestador {
     public void setCargaHorariaSemanal(int cargaHorariaSemanal) {
         if (cargaHorariaSemanal <= 0) {
             System.out.println("Carga horária semanal deve ser maior que zero.");
+            return;
+            //Não implementado por não ter sido passado em sala de aula, mas poderia ser implementado com uma exceção
+            //throw new IllegalArgumentException("Carga horária semanal deve ser maior que zero.");
         }
         this.cargaHorariaSemanal = cargaHorariaSemanal;
     }
@@ -35,6 +41,9 @@ public class Estagiario extends BasePrestador {
     public void setAreaEstagio(String areaEstagio) {
         if (areaEstagio == null || areaEstagio.isEmpty()) {
             System.out.println("Área de estágio não pode ser nula ou vazia.");
+            return;
+            //Não implementado por não ter sido passado em sala de aula, mas poderia ser implementado com uma exceção
+            //throw new IllegalArgumentException("Área de estágio não pode ser nula ou vazia.");
         }
         this.areaEstagio = areaEstagio;
     }

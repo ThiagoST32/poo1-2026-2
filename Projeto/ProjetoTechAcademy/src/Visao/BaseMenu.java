@@ -31,9 +31,9 @@ public abstract class BaseMenu {
     protected int entradaValida() {
         while (true) {
             if (!this.scan.hasNextInt()) {
-                System.out.println("Entrada inválida. Por favor, insira um número inteiro para o código.");
+                System.out.println("Entrada inválida. Por favor, insira uma entrada válida.");
                 this.scan.nextLine();
-                System.out.print("Informe o código: ");
+                System.out.print("Informe o valor: ");
                 continue;
             }
             int codigo = this.scan.nextInt();
@@ -42,8 +42,8 @@ public abstract class BaseMenu {
                 return codigo;
             }
 
-            System.out.println("Entrada inválida. O código deve ser maior que zero.");
-            System.out.print("Informe o código: ");
+            System.out.println("Entrada inválida.");
+            System.out.print("Informe o valor: ");
         }
     }
 
